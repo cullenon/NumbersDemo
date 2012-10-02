@@ -13,9 +13,31 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer
 {
+    NSMutableArray *_tilesArray;
+    CCLayerColor *_blankTile;
+    CGPoint _startPoint;
+    int _width;
+    int _columns;
+    BOOL _gameover;
+    CCLabelTTF *_lblMoves;
+    int _moveCounter;
+    BOOL _isMoving;
+    BOOL _accelToggleOn;
+    
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
-+(CCScene *) scene;
++ (CCScene *) scene;
++ (id)nodeWithColumns:(int)columns;
+- (id)initWithColumns:(int)columns;
+- (void)checkIfWin;
+- (void)didWinGame;
+- (void)puzzleAssist;
+- (void)shuffleTiles;
+- (void)onBack;
+- (void)didToggleAccelerometer;
+- (void)swapBlankTileWithTile:(CCLayerColor *)tile;
+- (void)stopMoving;
+
 
 @end
